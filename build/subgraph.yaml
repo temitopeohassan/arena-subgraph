@@ -1,0 +1,29 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Contract
+    network: scroll-sepolia
+    source:
+      address: "0x3cE0A2b6267dC8487cFC7f8E26896F728F4F7a36"
+      abi: Contract
+      startBlock: 4162355
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - PropertyCreated
+        - ShareBought
+      abis:
+        - name: Contract
+          file: Contract\abis\Contract.json
+      eventHandlers:
+        - event: PropertyCreated(indexed address,indexed uint256,string,uint256,uint256,string)
+          handler: handlePropertyCreated
+        - event: ShareBought(indexed address,indexed uint256,uint256,uint256,uint256)
+          handler: handleShareBought
+      file: Contract\Contract.wasm

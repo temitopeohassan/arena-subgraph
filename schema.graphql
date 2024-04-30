@@ -1,0 +1,24 @@
+type PropertyCreated @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  propertyId: BigInt! # uint256
+  name: String! # string
+  totalShares: BigInt! # uint256
+  sharePrice: BigInt! # uint256
+  image: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ShareBought @entity(immutable: true) {
+  id: Bytes!
+  buyer: Bytes! # address
+  propertyId: BigInt! # uint256
+  shareId: BigInt! # uint256
+  sharePrice: BigInt! # uint256
+  newTokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

@@ -1,0 +1,175 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_nftContract", "type": "address" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "propertyId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "totalShares",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "sharePrice",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "image",
+        "type": "string"
+      }
+    ],
+    "name": "PropertyCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "buyer",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "propertyId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "shareId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "sharePrice",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newTokenId",
+        "type": "uint256"
+      }
+    ],
+    "name": "ShareBought",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_propertyId", "type": "uint256" },
+      { "internalType": "string", "name": "_tokenURI", "type": "string" }
+    ],
+    "name": "buyShare",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "_name", "type": "string" },
+      { "internalType": "uint256", "name": "_totalShares", "type": "uint256" },
+      { "internalType": "uint256", "name": "_sharePrice", "type": "uint256" },
+      { "internalType": "string", "name": "_image", "type": "string" }
+    ],
+    "name": "createProperty",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_propertyId", "type": "uint256" }
+    ],
+    "name": "getPropertyShares",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "uint256", "name": "shareId", "type": "uint256" },
+          { "internalType": "bool", "name": "isSold", "type": "bool" },
+          {
+            "internalType": "uint256",
+            "name": "propertyId",
+            "type": "uint256"
+          },
+          { "internalType": "uint256", "name": "price", "type": "uint256" },
+          { "internalType": "address", "name": "owner", "type": "address" }
+        ],
+        "internalType": "struct PropertyShares.Share[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "nftContract",
+    "outputs": [
+      { "internalType": "contract PropertyNFT", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "numProperties",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "properties",
+    "outputs": [
+      { "internalType": "uint256", "name": "propertyId", "type": "uint256" },
+      { "internalType": "address payable", "name": "owner", "type": "address" },
+      { "internalType": "string", "name": "name", "type": "string" },
+      { "internalType": "uint256", "name": "totalShares", "type": "uint256" },
+      { "internalType": "uint256", "name": "sharePrice", "type": "uint256" },
+      { "internalType": "uint256", "name": "sharesSold", "type": "uint256" },
+      { "internalType": "string", "name": "image", "type": "string" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "sharesCounter",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
